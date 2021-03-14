@@ -1,0 +1,15 @@
+<h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">Müşteri Listesi</h5>
+<table class="table table-hover table-success table-striped">
+  <thead>
+    <tr>
+      <th>Müşteri No</th>
+      <th>Şirket Adı</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let customer of customers">
+    <td>{{ customer.userId }}</td>
+    <td>{{ customer.companyName }}</td>
+  </tr>
+</tbody>
+</table>
