@@ -3,12 +3,14 @@
   <thead>
     <tr>
       <th>Müşteri No</th>
+      <th>Kullanıcı No</th>
       <th>Şirket Adı</th>
     </tr>
   </thead>
   <tbody>
   <tr *ngFor="let customer of customers">
-    <td>{{ customer.userId }}</td>
+    <td>{{ customer.customerId }}</td>
+    <td>{{customer.userId}}</td>
     <td>{{ customer.companyName }}</td>
   </tr>
 </tbody>

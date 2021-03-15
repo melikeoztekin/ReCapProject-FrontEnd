@@ -1,4 +1,4 @@
-<h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">Kiralanmış Araba Listesi</h5>
+<!-- <h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">Kiralanmış Araba Listesi</h5>
 <table class="table table-hover table-danger table-striped">
   <thead>
     <tr>
@@ -16,6 +16,31 @@
       <td>{{ rental.userId }}</td>
       <td>{{ rental.rentDate }}</td>
       <td>{{ rental.returnDate }}</td>
+    </tr>
+  </tbody>
+</table> -->
+<h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">Kiralanmış Araba Listesi</h5>
+<table class="table table-hover table-danger table-striped">
+  <thead>
+    <tr>
+      <th>Rent No</th>
+      <th>Araç No</th>
+      <th>Araç Adı</th>
+      <th>Marka Adı</th>
+      <th>Müşteri İsmi</th>
+      <th>Başlangıç Tarihi</th>
+      <th>Bitiş Tarihi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rentaldto of rentaldtos">
+      <td>{{ rentaldto.rentalId }}</td>
+      <td>{{ rentaldto.carId }}</td>
+      <td>{{ rentaldto.carName }}</td>
+      <td>{{ rentaldto.brandName}}</td>
+      <td>{{ rentaldto.userName }}</td>
+      <td>{{ rentaldto.rentDate }}</td>
+      <td>{{ rentaldto.returnDate }}</td>
     </tr>
   </tbody>
 </table>

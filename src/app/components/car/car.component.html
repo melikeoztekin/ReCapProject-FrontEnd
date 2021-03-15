@@ -1,25 +1,50 @@
-<h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">Araba Listesi</h5>
+<!-- <h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">Araba Listesi</h5>
 <table class="table table-hover table-warning table-striped">
   <thead>
     <tr>
       <th>Araç No</th>
       <th>Marka No</th>
-      <th>Renk No</th>
       <th>Araç Adı</th>
+      <th>Renk No</th>
       <th>Model Yılı</th>
-      <th>Günlük Ücret</th>
-      <th>Açıklama</th>
+      <th>Günlük Ücreti</th>
+      <th>Açılaması</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let car of cars">
       <td>{{ car.carId }}</td>
       <td>{{ car.brandId }}</td>
-      <td>{{ car.colorId }}</td>
       <td>{{ car.carName }}</td>
+      <td>{{ car.colorId }}</td>
       <td>{{ car.modelYear }}</td>
       <td>{{ car.dailyPrice }}</td>
       <td>{{ car.description }}</td>
+    </tr>
+  </tbody>
+</table> -->
+<h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">Araba Listesi</h5>
+<table class="table table-hover table-warning table-striped">
+  <thead>
+    <tr>
+      <th>Araç No</th>
+      <th>Marka Adı</th>
+      <th>Araç Adı</th>
+      <th>Renk Adı</th>
+      <th>Model Yılı</th>
+      <th>Günlük Ücreti</th>
+      <th>Açılaması</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cardto of cardtos">
+      <td>{{ cardto.carId }}</td>
+      <td>{{ cardto.brandName }}</td>
+      <td>{{ cardto.carName }}</td>
+      <td>{{ cardto.colorName }}</td>
+      <td>{{ cardto.modelYear }}</td>
+      <td>{{ cardto.dailyPrice }}</td>
+      <td>{{ cardto.description }}</td>
     </tr>
   </tbody>
 </table>
