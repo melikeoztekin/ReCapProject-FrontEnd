@@ -1,4 +1,19 @@
 <ul class="list-group">
   <li class="list-group-item bg-dark text-light">Araba Markaları</li>
-  <li *ngFor="let brand of brands" class="list-group-item list-group-item-secondary">{{brand.brandName}}</li>
+  <li
+    [class]="getAllBrandClass()"
+    class="list-group-item-secondary"
+    routerLink="/cars"
+  >
+    Tüm Ürünler
+  </li>
+  <li
+    (click)="setCurrentBrand(brand)"
+    routerLink="/cars/brand/{{ brand.brandId }}"
+    *ngFor="let brand of brands"
+    [class]="getCurrentBrandClass(brand)"
+    class="list-group-item-secondary"
+  >
+    {{ brand.brandName }}
+  </li>
 </ul>

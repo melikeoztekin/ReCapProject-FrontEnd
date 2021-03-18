@@ -24,7 +24,6 @@
   <thead>
     <tr>
       <th>Rent No</th>
-      <th>Araç No</th>
       <th>Araç Adı</th>
       <th>Marka Adı</th>
       <th>Müşteri İsmi</th>
@@ -35,7 +34,6 @@
   <tbody>
     <tr *ngFor="let rentaldto of rentaldtos">
       <td>{{ rentaldto.rentalId }}</td>
-      <td>{{ rentaldto.carId }}</td>
       <td>{{ rentaldto.carName }}</td>
       <td>{{ rentaldto.brandName}}</td>
       <td>{{ rentaldto.userName }}</td>
