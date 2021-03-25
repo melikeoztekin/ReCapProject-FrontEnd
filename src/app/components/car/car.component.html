@@ -1,29 +1,13 @@
-<!-- <h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">Araba Listesi</h5>
-<table class="table table-hover table-warning table-striped">
-  <thead>
-    <tr>
-      <th>Araç No</th>
-      <th>Marka No</th>
-      <th>Araç Adı</th>
-      <th>Renk No</th>
-      <th>Model Yılı</th>
-      <th>Günlük Ücreti</th>
-      <th>Açılaması</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let car of cars">
-      <td>{{ car.carId }}</td>
-      <td>{{ car.brandId }}</td>
-      <td>{{ car.carName }}</td>
-      <td>{{ car.colorId }}</td>
-      <td>{{ car.modelYear }}</td>
-      <td>{{ car.dailyPrice }}</td>
-      <td>{{ car.description }}</td>
-    </tr>
-  </tbody>
-</table> -->
-<h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">Araba Listesi</h5>
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<h5 class="text-center bg-dark rounded-top text-light mb-1 mt-1">
+  Araba Listesi
+</h5>
 <table class="table table-hover table-warning table-striped">
   <thead>
     <tr>
@@ -37,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let cardto of cardtos">
+    <tr *ngFor="let cardto of cardtos"routerLink="/cardto/{{ cardto.carId }}">
       <td>{{ cardto.carId }}</td>
       <td>{{ cardto.brandName }}</td>
       <td>{{ cardto.carName }}</td>
@@ -45,6 +29,73 @@
       <td>{{ cardto.modelYear }}</td>
       <td>{{ cardto.dailyPrice }}</td>
       <td>{{ cardto.description }}</td>
+      <td>
+        <button
+          routerLink="/cardto/{{ cardto.carId }}"
+          type="button"
+          class="btn btn-success"
+        >
+          detay
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
+<!-- <div class="row">
+  <div *ngFor="let cardto of cardtos" class="card" style="width: 18rem">
+    <img
+      *ngIf="cardto.imagePath != null"
+      class="card-img-top"
+      src="https://localhost:44399/{{ cardto.imagePath }}"
+      alt="Card image cap"
+    />
+    <img
+      *ngIf="cardto.imagePath == null"
+      class="card-img-top"
+      src="https://localhost:44399/Images/defaultImage.jpg"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ cardto.carName }}</h5>
+      <p class="card-text">{{ cardto.brandName }}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div> -->
+<div class="row">
+  <div *ngFor="let cardto of cardtos" class="card" style="width: 18rem">
+    <img
+      *ngIf="cardto.imagePath != null"
+      class="card-img-top"
+      src="https://localhost:44399/{{ cardto.imagePath }}"
+      alt="Card image cap"
+    />
+    <img
+      *ngIf="cardto.imagePath == null"
+      class="card-img-top"
+      src="https://localhost:44399/Images/defaultImage.jpg"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ cardto.carName }}</h5>
+      <h6 class="card-text">{{ cardto.dailyPrice }}</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ cardto.brandName }}</li>
+      <li class="list-group-item">{{ cardto.modelYear }}</li>
+      <li class="list-group-item">{{ cardto.colorName }}</li>
+      <li class="list-group-item">{{ cardto.description }}</li>
+    </ul>
+    <div class="card-body">
+      <a class="card-link"
+        ><button
+          routerLink="/cardto/{{ cardto.carId }}"
+          type="button"
+          class="btn btn-success"
+        >
+          Detay Görüntüle
+        </button></a
+      >
+    </div>
+  </div>
+</div>
