@@ -1,0 +1,48 @@
+<div class="row mb-2 alert alert-success">
+
+    <div class="col col-5">
+      <select [(ngModel)]="brandIdFilter" class="form-select">
+        <option [value]="0" selected>Tüm Markalar</option>
+        <option *ngFor="let brand of brands" 
+        [value]="brand.brandId"
+        [selected]="getSelectedBrand(brand.brandId)">      
+          {{ brand.brandName }}
+        </option>
+      </select>
+    </div>
+  
+    <div class="col col-5">
+      <select [(ngModel)] = "colorIdFilter" class="form-select">
+        <option [value]="0" selected>Tüm Renkler</option>
+        <option *ngFor="let color of colors"
+        [value]="color.colorId"
+        [selected] = "getSelectedColor(color.colorId)">
+          {{ color.colorName }}
+        </option>
+      </select>
+    </div>
+  
+    <div class="col col-1">
+      <div class="btn-group">
+        <button
+          routerLink="/cars/filter/{{ brandIdFilter }}/{{ colorIdFilter }}"
+          type="button"
+          class="btn btn-success"
+        >
+          Filtrele
+        </button>
+      </div>
+    </div>
+  
+    <div class="col col-1">
+      <div class="btn-group">
+        <button routerLink="/cars"
+        type="button"
+        class="btn btn-danger"
+        >
+          Temizle
+        </button>
+      </div>
+    </div>
+  
+  </div>

@@ -1,0 +1,39 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+img{
+  width: 275px;
+  height: 200px;
+  padding: 8px;
+  border-radius: 5%;
+}
+button {
+    border-color: black;
+  display: inline-block;
+  padding: 8px;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover{
+    background-color:  #28a745;
+    color: white;
+    opacity: 0.9;
+}
+
+a:hover {
+    color:  #28a745;
+    opacity: 0.9;
+}

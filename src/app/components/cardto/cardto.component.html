@@ -1,67 +1,92 @@
-<div
-  id="carouselExampleControls"
-  class="carousel slide"
-  data-bs-ride="carousel"
->
-  <div class="carousel-inner">
-    <div
-      *ngFor="let cardto of carImages; let i = index"
-      [ngClass]="getSliderClassName(i)"
-    >
-    <img
-    *ngIf="cardto.imagePath != null"
-    class="card-img-top"
-    src="https://localhost:44399/{{ cardto.imagePath }}"
-    alt="Card image cap"
-  />
-  <img
-    *ngIf="cardto.imagePath == null"
-    class="card-img-top"
-    src="https://localhost:44399/Images/defaultImage.jpg"
-    alt="Card image cap"
-  />
-    </div>
-  </div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselExampleControls"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselExampleControls"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<table class="table">
-  <thead>
-    <tr style="color: #28a745">
-      <th>Araç No</th>
-      <th>Araç Adı</th>
-      <th>Marka</th>
-      <th>Renk</th>
-      <th>Model Yılı</th>
-      <th>Açıklama</th>
-      <th>Günlük Fiyat</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tr *ngFor="let cardto of cardtos">
-    <td>{{ cardto.carId }}</td>
-    <td>{{ cardto.carName }}</td>
-    <td>{{ cardto.brandName }}</td>
-    <td>{{ cardto.colorName }}</td>
-    <td>{{ cardto.modelYear }}</td>
-    <td>{{ cardto.description }}</td>
-    <td>{{ cardto.dailyPrice }}</td>
-  </tr>
-</table>
 
+<div class="row">
+  <div
+    id="carouselExampleControls"
+    class="col-6 carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div
+        *ngFor="let cardto of carImages; let i = index"
+        [ngClass]="getSliderClassName(i)"
+      >
+        <img
+          *ngIf="cardto.imagePath != null"
+          class="card-img-top"
+          src="https://localhost:44399/{{ cardto.imagePath }}"
+          alt="Card image cap"
+        />
+        <img
+          *ngIf="cardto.imagePath == null"
+          class="card-img-top"
+          src="https://localhost:44399/Images/defaultImage.jpg"
+          alt="Card image cap"
+        />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleControls"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleControls"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="col-6 alert alert-success">
+    <table class="table table-sm table-striped" *ngFor="let cardto of cardtos">
+      <thead style="color: black; text-align: right; font-size: 20px;">
+        <th colspan="2">
+          <a href="#" title="Araç bilgisini paylaş."><i class="fa fa-share-alt px-3"></i></a>
+          <a href="#" title="Aracı favorilerine ekle"><i class="fa fa-heart"></i></a>
+        </th>
+      </thead>
+      <thead><th colspan="2" style="color: black; text-align: center; font-size: 26px;" >Araç detayları</th></thead>
+      
+      <tbody>
+        <tr>
+          <td colspan="2" style="color: dimgray; text-align: right; font-size: 11px;">Araç No: {{ cardto.carId }}</td>
+        </tr>
+        <tr>
+          <th scope="row" style="color: dimgray; font-size: 11px;">Marka bilgisi :</th>
+          <td>{{ cardto.brandName }}</td>
+        </tr>
+        <tr>
+          <th scope="row" style="color: dimgray; font-size: 11px;">Model bilgisi:</th>
+          <td>{{ cardto.carName }}</td>
+        </tr>
+        <tr>
+          <th scope="row" style="color: dimgray; font-size: 11px;">Model yılı:</th>
+          <td>{{ cardto.dailyPrice }}</td>
+        </tr>
+        <tr>
+          <th scope="row" style="color: dimgray; font-size: 11px;">Renk bilgisi:</th>
+          <td>{{ cardto.colorName }}</td>
+        </tr>
+        <tr>
+          <th scope="row" style="color: dimgray; font-size: 11px;">Araç açıklaması:</th>
+          <td>{{ cardto.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <button *ngFor="let cardto of cardtos"
+        routerLink="/cardto/{{ cardto.carId }}"
+        class="buttons btn btn-lg btn-block btn-outline-success "
+        title="Aracın detaylarını görmek için tıkla."
+      >
+        Aracı Kirala
+      </button>
+    </p>
+  </div>
+</div>
