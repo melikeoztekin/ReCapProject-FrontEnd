@@ -26,7 +26,7 @@
   </li>
   <li
     (click)="setCurrentBrand(brand)"
-    routerLink="/cars/brand/{{ brand.brandId }}"
+  
     *ngFor="let brand of brands | brandfilterPipe: filterText"
     [class]="getCurrentBrandClass(brand)"
     class="list-group-item-secondary"

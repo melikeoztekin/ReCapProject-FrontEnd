@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
 
@@ -12,7 +13,7 @@ export class BrandComponent implements OnInit {
   currentBrand : Brand;
   filterText="";
   
-  constructor(private brandService : BrandService) {}
+  constructor(private brandService : BrandService,private _router:Router) {}
 
   ngOnInit(): void {
     this.getBrands();
@@ -26,6 +27,9 @@ export class BrandComponent implements OnInit {
 
   setCurrentBrand(brand:Brand){
     this.currentBrand=brand;
+    this._router.navigate(['cars/'], {
+      queryParams: { brandId: brand.brandId},
+    });
   }
 
   getCurrentBrandClass(brand:Brand){

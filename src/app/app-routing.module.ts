@@ -5,14 +5,12 @@ import { CardtoComponent } from './components/cardto/cardto.component';
 import { RentalComponent } from './components/rental/rental.component';
 
 const routes: Routes = [
-{path : "",pathMatch:"full", component:CarComponent},
 {path : "cars", component:CarComponent},
-{path:"cars/filter/:brandId/:colorId", component:CarComponent},
-{path : "cars/brand/:brandId", component:CarComponent},
-{path : "cars/color/:colorId", component:CarComponent},
+{path:"cars/:brandId&colorId", component:CarComponent},
+{path : "",pathMatch:"full", component:CarComponent},
 {path:"cardto/:carId",component:CardtoComponent},
 {path:"rentals/getrentaldto",component:RentalComponent},
-{path:"rentals/:carId", component:RentalComponent}
+{path:"rentals/:carId", component:RentalComponent},
 ];
 
 @NgModule({

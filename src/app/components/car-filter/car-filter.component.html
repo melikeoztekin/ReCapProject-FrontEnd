@@ -1,31 +1,55 @@
 <div class="row mb-2 alert alert-success">
 
     <div class="col col-5">
-      <select [(ngModel)]="brandIdFilter" class="form-select">
+      <select 
+      #selectBrand
+      (change)="getSelectedBrand(selectBrand.value)"
+      class="form-select form-select"
+      aria-label=".form-select-lg example"
+    >
+      <option selected value="0">Tüm Markalar</option>
+      <option *ngFor="let brand of brands" [value]="brand.brandId">
+        {{ brand.brandName }}
+      </option>
+    </select>
+
+      <!-- <select [(ngModel)]="brandIdFilter" class="form-select">
         <option [value]="0" selected>Tüm Markalar</option>
         <option *ngFor="let brand of brands" 
         [value]="brand.brandId"
         [selected]="getSelectedBrand(brand.brandId)">      
           {{ brand.brandName }}
         </option>
-      </select>
+      </select> -->
     </div>
   
     <div class="col col-5">
-      <select [(ngModel)] = "colorIdFilter" class="form-select">
+      <select 
+      #selectColor
+      (change)="getSelectedColor(selectColor.value)"
+      class="form-select form-select"
+      aria-label=".form-select-lg example"
+    >
+      <option selected value="0">Tüm Renkler</option>
+      <option *ngFor="let color of colors" [value]="color.colorId">
+        {{ color.colorName }}
+      </option>
+    </select>
+    
+      <!-- <select [(ngModel)] = "colorIdFilter" class="form-select">
         <option [value]="0" selected>Tüm Renkler</option>
         <option *ngFor="let color of colors"
         [value]="color.colorId"
         [selected] = "getSelectedColor(color.colorId)">
           {{ color.colorName }}
         </option>
-      </select>
+      </select> -->
     </div>
-  
+    <!-- routerLink="/cars/filter/{{ brandIdFilter }}/{{ colorIdFilter }}" -->
     <div class="col col-1">
       <div class="btn-group">
         <button
-          routerLink="/cars/filter/{{ brandIdFilter }}/{{ colorIdFilter }}"
+        (click)="btnSorgula()"
           type="button"
           class="btn btn-success"
         >
